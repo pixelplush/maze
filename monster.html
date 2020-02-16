@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <title>Monster Mansion</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135113520-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-135113520-1');
+    </script>
+    <link rel="stylesheet" href="web/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="web/pinkfluffyunicorn.min.js"></script>
+  </head>
+  <body>
+    <div id="unicorn-display"></div>
+    <script src="web/game.min.js"></script>
+    <script>
+      const params = new URLSearchParams( location.search );
+      setupGame( "Monster Mansion", {
+        path: "web",
+        map: "monstermansion/floor",
+        walls: "monstermansion/walls",
+        fog: [],// "fog", "fog3" ],
+        banner: "monstermansion/banner",
+        instructions: "monstermansion/instructions",
+        numbers: "monstermansion/numbers",
+        endBG: "monstermansion/end_bcg",
+        endNote: "monstermansion/end_note",
+        scoreBoard: [ "monstermansion/scoreboard" ],
+        scoreBoardVerticalOffset: 50,
+        bannerHorizontalOffset: -10,
+        endVerticalOffset: 20,
+        characters: {
+          "boybear": "bear",
+          "girlbear": "beargirl",
+          "evilbear": "evil_bear",
+          "monster": "monster",
+          "maaya": "maaya",
+          "instafluff": "insta",
+          "avellana": "avelana",
+          "jimmy": "jimmy",
+          "sammie": "sammie",
+        },
+        playable: [ "boybear", "girlbear" ],
+        animatedPrizes: {
+        },
+        prizes: {
+          "valentines/smallheart_red": 1,
+          "valentines/smallheart_orange": 1,
+          "valentines/bigger_heart": 5,
+          "valentines/choco_heart": 15,
+          "valentines/giant_heart": 50,
+        },
+        prizeRarity: {
+          "valentines/smallheart_red": 100,
+          "valentines/smallheart_orange": 100,
+          "valentines/bigger_heart": 20,
+          "valentines/choco_heart": 10,
+          "valentines/giant_heart": 1
+        },
+        traps: {
+          "halloween/web": -5
+        },
+        trapRarity: {
+          "halloween/web": 30
+        },
+        bossName: "MONSTER!",
+        bossCharacter: "monster",
+        defaultNameColor: "#f8bfe0",
+        scoreColor: "#770027",
+        scoreboardColor: "#770027",
+        // snow: true,
+        giftDrop: null,
+        lightCharacters: true,
+        prizeRespawnTime: 60,
+        lanterns: "valentines/lanterns",
+        glows: [
+          { x: 6, y: 5 },
+          { x: 634, y: 5 },
+          { x: 510, y: 30 },
+          { x: 320, y: 62 },
+          { x: 97, y: 94 },
+          { x: 543, y: 190 },
+          { x: 97, y: 223 },
+          { x: 415, y: 254 },
+          { x: 576, y: 63 },
+          { x: 256, y: 319 },
+          { x: 5, y: 344 },
+          { x: 634, y: 344 },
+          { x: 224, y: 34 },
+          { x: 256, y: 128 },
+          { x: 479, y: 128 },
+          { x: 193, y: 258 },
+          { x: 575, y: 287 },
+          { x: 608, y: 224 },
+        ]
+      },
+      {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        messageFormat: params.get( "messageFormat" ),
+        addBoss: !params.get( "noBoss" ),
+        bossEffect: params.get( "bossEffect" ) || "death",
+        numBosses: params.get( "bosses" ) ? parseInt( params.get( "bosses" ) ) : 4,
+        numPrizes: params.get( "prizes" ) ? parseInt( params.get( "prizes" ) ) : 7,
+        numTraps: params.get( "traps" ) ? parseInt( params.get( "traps" ) ) : 5,
+        showBannerAd: false,
+      });
+    </script>
+  </body>
+</html>
