@@ -19,15 +19,16 @@
     <script>
       const params = new URLSearchParams( location.search );
       setupGame( "Trick or Treat", {
-        path: "web",
-        map: "halloween/floor_g",
-        walls: "halloween/walls_g",
-        fog: [ "halloween/fog_green", "halloween/fog2_green" ],
-        banner: "halloween/game_end_sign_g",
-        instructions: "halloween/instructions_g",
-        endBG: "halloween/end_bcg_dark_g",
-        endNote: "halloween/end_note_g",
-        scoreBoard: [ "halloween/scoreboard_g" ],
+        path: "https://www.pixelplush.dev",
+        map: "game-maze/halloween/floor_g",
+        walls: "game-maze/halloween/walls_g",
+        fog: [ "effects/fog_green", "effects/fog2_green" ],
+        banner: "game-maze/halloween/game_end_sign_g",
+        instructions: "game-maze/halloween/instructions_g",
+        numbers: "game-maze/numbers",
+        endBG: "game-maze/halloween/end_bcg_dark_g",
+        endNote: "game-maze/halloween/end_note_g",
+        scoreBoard: [ "game-maze/halloween/scoreboard_g" ],
         scoreBoardVerticalOffset: 50,
         characters: {
           "vampire": "vampire",
@@ -43,31 +44,31 @@
         },
         playable: [ "vampire", "witch", "zombie", "monster" ],
         prizes: {
-          "halloween/green_treat": 5,
-          "halloween/pink_treat": 10,
-          "halloween/candycorn": 20,
-          "halloween/lifesaver": 25,
-          "halloween/chocolate": 30,
-          "halloween/golden_pumpkin": 100,
+          "green_treat": 5,
+          "pink_treat": 10,
+          "candycorn": 20,
+          "lifesaver": 25,
+          "chocolate": 30,
+          "golden_pumpkin": 100,
         },
         prizeRarity: {
-          "halloween/green_treat": 50,
-          "halloween/pink_treat": 50,
-          "halloween/candycorn": 25,
-          "halloween/lifesaver": 20,
-          "halloween/chocolate": 10,
-          "halloween/golden_pumpkin": 1
+          "green_treat": 50,
+          "pink_treat": 50,
+          "candycorn": 25,
+          "lifesaver": 20,
+          "chocolate": 10,
+          "golden_pumpkin": 1
         },
         traps: {
-          "halloween/web": -5
+          "web": -5
         },
         trapRarity: {
-          "halloween/web": 30
+          "web": 30
         },
         bossName: "BOO!",
         bossCharacter: "ghost",
         giftDrop: null,
-        lanterns: "halloween/lanterns",
+        lanterns: "game-maze/halloween/lanterns",
         glows: [
           { x: 6, y: 5 },
           { x: 224, y: 33 },

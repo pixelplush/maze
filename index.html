@@ -19,15 +19,16 @@
     <script>
       const params = new URLSearchParams( location.search );
       setupGame( "Wandering Wizards", {
-        path: "web",
-        map: "floor",
-        walls: "walls",
-        fog: [ "fog3", "fog4" ],
-        banner: "game_end_sign",
-        instructions: "instructions",
-        endBG: "end_bcg_dark",
-        endNote: "end_note",
-        scoreBoard: [ "scoreboard" ],
+        path: "https://www.pixelplush.dev",
+        map: "game-maze/floor",
+        walls: "game-maze/walls",
+        fog: [ "effects/fog3", "effects/fog4" ],
+        banner: "game-maze/game_end_sign",
+        instructions: "game-maze/instructions",
+        numbers: "game-maze/numbers",
+        endBG: "game-maze/end_bcg_dark",
+        endNote: "game-maze/end_note",
+        scoreBoard: [ "game-maze/scoreboard" ],
         scoreBoardVerticalOffset: 50,
         characters: {
           "maaya": "maaya",
@@ -74,7 +75,7 @@
         scoreboardColor: "#000000",
         snow: false,
         giftDrop: null,
-        lanterns: "lanterns_normal",
+        lanterns: "game-maze/lanterns_normal",
         glows: [
           { x: 6, y: 5 },
           { x: 224, y: 33 },
