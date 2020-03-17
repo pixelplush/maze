@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <title>Easter Egg Hunt</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="web/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="web/pinkfluffyunicorn.min.js"></script>
+  </head>
+  <body>
+    <div id="unicorn-display"></div>
+    <script src="web/game.min.js"></script>
+    <script>
+      const params = new URLSearchParams( location.search );
+      setupGame( "Easter Egg Hunt", {
+        path: "https://www.pixelplush.dev",
+        map: "game-maze/easter/floor",
+        walls: "game-maze/easter/walls",
+        fog: [ "effects/fog", "effects/fog3" ],
+        banner: "game-maze/easter/banner",
+        instructions: "game-maze/easter/instructions",
+        numbers: "game-maze/easter/numbers",
+        endBG: "game-maze/easter/end_bcg",
+        endNote: "game-maze/easter/end_note",
+        scoreBoard: [ "game-maze/easter/scoreboard" ],
+        scoreBoardVerticalOffset: 0,
+        bannerHorizontalOffset: 60,
+        characters: {
+          "boy": "boy",
+          "girl": "girl",
+          // "snowman": "snowman",
+          // "santa": "santa",
+          // "claus": "claus",
+          "evilbear": "evil_bear",
+          "maaya": "maaya",
+          "instafluff": "insta",
+          "avellana": "avelana",
+          "jimmy": "jimmy",
+          "sammie": "sammie",
+        },
+        playable: [ "boy", "girl" ],
+        animatedPrizes: {
+        },
+        prizes: {
+          "egg_blue": 5,
+          "egg_brown": 5,
+          "egg_red": 5,
+          "egg_trio_1": 15,
+          "egg_trio_2": 15,
+          "egg_trio_3": 15,
+          "painted_egg": 30,
+          "golden_egg": 100,
+        },
+        prizeRarity: {
+          "egg_blue": 30,
+          "egg_brown": 30,
+          "egg_red": 30,
+          "egg_trio_1": 15,
+          "egg_trio_2": 15,
+          "egg_trio_3": 15,
+          "painted_egg": 10,
+          "golden_egg": 1
+        },
+        traps: {
+          "dirt_hole": -5,
+        },
+        trapRarity: {
+          "dirt_hole": 30,
+        },
+        bossName: "EVIL!",
+        bossCharacter: "evilbear",
+        defaultNameColor: "#ffffff",
+        scoreColor: "#2E84D9",
+        scoreboardColor: "#2E84D9",
+        // snow: true,
+        giftDrop: null,
+        lanterns: "game-maze/frozenfrenzy/lanterns",
+        glows: [
+          { x: 6, y: 5 },
+          { x: 634, y: 5 },
+          { x: 510, y: 30 },
+          { x: 320, y: 62 },
+          { x: 97, y: 94 },
+          { x: 543, y: 190 },
+          { x: 97, y: 223 },
+          { x: 415, y: 254 },
+          { x: 576, y: 63 },
+          { x: 256, y: 319 },
+          { x: 5, y: 344 },
+          { x: 634, y: 344 },
+        ]
+      },
+      {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        messageFormat: params.get( "messageFormat" ),
+        addBoss: !params.get( "noBoss" ),
+        bossEffect: params.get( "bossEffect" ) || "steal",
+        numBosses: params.get( "bosses" ) ? parseInt( params.get( "bosses" ) ) : 0,
+        numPrizes: params.get( "prizes" ) ? parseInt( params.get( "prizes" ) ) : 7,
+        numTraps: params.get( "traps" ) ? parseInt( params.get( "traps" ) ) : 5,
+        showBannerAd: false,
+      });
+    </script>
+  </body>
+</html>
