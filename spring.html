@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <title>Springtime Spree</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="web/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="web/pinkfluffyunicorn.min.js"></script>
+  </head>
+  <body>
+    <div id="unicorn-display"></div>
+    <script src="web/game.min.js"></script>
+    <script>
+      const params = new URLSearchParams( location.search );
+      setupGame( "Springtime Spree", {
+        path: "https://www.pixelplush.dev",
+        map: "game-maze/spring/floor",
+        walls: "game-maze/spring/walls",
+        fog: [],// "effects/fog", "effects/fog3" ],
+        banner: "game-maze/spring/banner",
+        instructions: "game-maze/spring/instructions",
+        numbers: "game-maze/spring/numbers",
+        endBG: "game-maze/spring/end_bcg",
+        endNote: "game-maze/spring/end_banner",
+        scoreBoard: [ "game-maze/spring/scoreboard" ],
+        scoreBoardVerticalOffset: 0,
+        bannerHorizontalOffset: 60,
+        characters: {
+          "bellflower": "bellflower",
+          "calendula": "calendula",
+          "poppy": "poppy",
+          "evilbear": "evil_bear",
+          "maaya": "maaya",
+          "instafluff": "insta",
+          "avellana": "avelana",
+          "jimmy": "jimmy",
+          "sammie": "sammie",
+        },
+        playable: [ "bellflower", "calendula", "poppy" ],
+        animatedPrizes: {
+        },
+        prizes: {
+          "flower1_blue": 5,
+          "flower1_red": 5,
+          "flower2": 15,
+          "flower3": 30,
+          "flower4": 100,
+        },
+        prizeRarity: {
+          "flower1_blue": 50,
+          "flower1_red": 50,
+          "flower2": 20,
+          "flower3": 10,
+          "flower4": 1
+        },
+        traps: {
+          "puddle": -5,
+          "stones": -5,
+        },
+        trapRarity: {
+          "puddle": 30,
+          "stones": 30,
+        },
+        bossName: "EVIL!",
+        bossCharacter: "evilbear",
+        defaultNameColor: "#ffffff",
+        scoreColor: "#1E3214",
+        scoreboardColor: "#1E3214",
+        // snow: true,
+        giftDrop: null,
+        lanterns: "game-maze/spring/lanterns",
+        glows: [
+          { x: 6, y: 5 },
+          { x: 634, y: 5 },
+          { x: 510, y: 30 },
+          { x: 320, y: 62 },
+          { x: 97, y: 94 },
+          { x: 543, y: 190 },
+          { x: 97, y: 223 },
+          { x: 415, y: 254 },
+          { x: 576, y: 63 },
+          { x: 256, y: 319 },
+          { x: 5, y: 344 },
+          { x: 634, y: 344 },
+        ]
+      },
+      {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        messageFormat: params.get( "messageFormat" ),
+        addBoss: !params.get( "noBoss" ),
+        bossEffect: params.get( "bossEffect" ) || "steal",
+        trapEffect: params.get( "trapEffect" ) || "tunnel",
+        numBosses: params.get( "bosses" ) ? parseInt( params.get( "bosses" ) ) : 0,
+        numPrizes: params.get( "prizes" ) ? parseInt( params.get( "prizes" ) ) : 7,
+        numTraps: params.get( "traps" ) ? parseInt( params.get( "traps" ) ) : 5,
+        showBannerAd: false,
+      });
+    </script>
+  </body>
+</html>
