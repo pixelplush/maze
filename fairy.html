@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>Fairy Forest</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="web/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="web/pinkfluffyunicorn.min.js"></script>
+  </head>
+  <body>
+    <div id="unicorn-display"></div>
+    <script src="web/game.min.js"></script>
+    <script>
+      const params = new URLSearchParams( location.search );
+      setupGame( "Fairy Forest", {
+        path: "https://www.pixelplush.dev",
+        map: "game-maze/fairyforest/floor",
+        walls: "game-maze/fairyforest/walls",
+        fog: [],// "effects/fog", "effects/fog3" ],
+        banner: "game-maze/fairyforest/banner",
+        instructions: "game-maze/fairyforest/instructions",
+        numbers: "game-maze/fairyforest/numbers",
+        endBG: "game-maze/spring/end_bcg",
+        endNote: "game-maze/fairyforest/thank you",
+        scoreBoard: [ "game-maze/fairyforest/scoreboard" ],
+        scoreBoardVerticalOffset: 0,
+        bannerHorizontalOffset: 60,
+        characters: {
+          "nova": "mushroom_man_purple",
+          "lotus": "mushroom_man_pink",
+          "tori": "mushroom_man_green",
+          "kiro": "fairy_boy",
+          "koral": "fairy_girl",
+          "ghost": "ghost",
+          "maaya": "maaya",
+          "instafluff": "insta",
+          "avellana": "avelana",
+          "jimmy": "jimmy",
+          "sammie": "sammie",
+        },
+        playable: [ "nova", "lotus", "tori", "kiro", "koral" ],
+        animatedPrizes: {
+        },
+        prizes: {
+          "mushroom_green": 5,
+          "mushroom_pink": 5,
+          "berry": 15,
+          "crystals": 30,
+        },
+        prizeRarity: {
+          "mushroom_green": 50,
+          "mushroom_pink": 50,
+          "berry": 20,
+          "crystals": 10,
+        },
+        traps: {
+          "fairy_hole": -5,
+        },
+        trapRarity: {
+          "fairy_hole": 30,
+        },
+        bossName: "BOO!",
+        bossCharacter: "ghost",
+        defaultNameColor: "#ffffff",
+        scoreColor: "#1E3214",
+        scoreboardColor: "#1E3214",
+        // snow: true,
+        giftDrop: null,
+        lanterns: "game-maze/fairyforest/lanterns",
+        glows: [
+          { x: 6, y: 5 },
+          { x: 634, y: 5 },
+          { x: 510, y: 33 },
+          { x: 320, y: 66 },
+          { x: 97, y: 98 },
+          { x: 543, y: 194 },
+          { x: 98, y: 227 },
+          { x: 415, y: 255 },
+          { x: 256, y: 325 },
+          { x: 5, y: 350 },
+          { x: 634, y: 350 },
+        ]
+      },
+      {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        messageFormat: params.get( "messageFormat" ),
+        addBoss: !params.get( "noBoss" ),
+        bossEffect: params.get( "bossEffect" ) || "steal",
+        trapEffect: params.get( "trapEffect" ) || "points",
+        numBosses: params.get( "bosses" ) ? parseInt( params.get( "bosses" ) ) : 0,
+        numPrizes: params.get( "prizes" ) ? parseInt( params.get( "prizes" ) ) : 7,
+        numTraps: params.get( "traps" ) ? parseInt( params.get( "traps" ) ) : 5,
+        showBannerAd: false,
+      });
+    </script>
+  </body>
+</html>
