@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <title>Camp Chaos</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="web/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="web/pinkfluffyunicorn.min.js"></script>
+  </head>
+  <body>
+    <div id="unicorn-display"></div>
+    <script src="web/game.min.js"></script>
+    <script>
+      const params = new URLSearchParams( location.search );
+      setupGame( "Camp Chaos", {
+        path: "https://cdn.jsdelivr.net/gh/pixelplush",
+        map: "game-maze/campchaos/floor",
+        walls: "game-maze/campchaos/walls",
+        fog: [],// "fog", "fog3" ],
+        banner: "game-maze/campchaos/banner",
+        instructions: "game-maze/campchaos/instructions",
+        numbers: "game-maze/campchaos/numbers",
+        endBG: "game-maze/campchaos/end_bcg",
+        endNote: "game-maze/campchaos/end_banner",
+        scoreBoard: [ "game-maze/campchaos/scoreboard" ],
+        scoreBoardVerticalOffset: 50,
+        scoresVerticalOffset: -20,
+        instructionsVerticalOffset: -20,
+        bannerHorizontalOffset: -10,
+        endVerticalOffset: 20,
+        characters: {
+          "blurple": "blurple",
+          "jelly": "jelly",
+          "gwape": "gwape",
+          "evilbear": "evil_bear",
+          "maaya": "maaya",
+          "instafluff": "insta",
+        },
+        playable: [ "blurple", "jelly", "gwape" ],
+        animatedPrizes: {
+        },
+        prizes: {
+          "crayon1": 5,
+          "crayon2": 5,
+          "crayon3": 5,
+          "crayon4": 5,
+          "crayon5": 5,
+          "crayons1": 50,
+          "crayons2": 100,
+        },
+        prizeRarity: {
+          "crayon1": 20,
+          "crayon2": 20,
+          "crayon3": 20,
+          "crayon4": 20,
+          "crayon5": 20,
+          "crayons1": 2,
+          "crayons2": 1,
+        },
+        traps: {
+          "potato1": -5,
+          "potato2": -5,
+        },
+        trapRarity: {
+          "potato1": 30,
+          "potato2": 30,
+        },
+        bossName: "EVIL!",
+        bossCharacter: "evilbear",
+        defaultNameColor: "#ffffff",
+        scoreColor: "#1E3214",
+        scoreboardColor: "#1E3214",
+        snow: false,
+        giftDrop: null,
+        lanterns: "game-maze/campchaos/lanterns",
+        glows: [
+          { x: 6, y: 5 },
+          { x: 634, y: 5 },
+          { x: 510, y: 30 },
+          { x: 320, y: 62 },
+          { x: 97, y: 94 },
+          { x: 543, y: 190 },
+          { x: 97, y: 223 },
+          { x: 415, y: 254 },
+          { x: 576, y: 63 },
+          { x: 256, y: 319 },
+          { x: 5, y: 344 },
+          { x: 634, y: 344 },
+          { x: 224, y: 34 },
+          { x: 256, y: 128 },
+          { x: 479, y: 128 },
+          { x: 193, y: 258 },
+          { x: 575, y: 287 },
+          { x: 608, y: 224 },
+        ]
+      },
+      {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        refreshToken: params.get( "refreshToken" ),
+        messageFormat: params.get( "messageFormat" ),
+        addBoss: !params.get( "noBoss" ),
+        bossEffect: params.get( "bossEffect" ) || "base",
+        numBosses: params.get( "bosses" ) ? parseInt( params.get( "bosses" ) ) : 0,
+        numPrizes: params.get( "prizes" ) ? parseInt( params.get( "prizes" ) ) : 14,
+        numTraps: params.get( "traps" ) ? parseInt( params.get( "traps" ) ) : 5,
+        showBannerAd: false,
+      });
+    </script>
+  </body>
+</html>
