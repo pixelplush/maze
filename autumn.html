@@ -1,106 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Autumn Adventure</title>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-6EJRXTPH3Z');
-    </script>
-    <link rel="stylesheet" href="web/fonts.css" />
-    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
-    <script src="web/pinkfluffyunicorn.min.js"></script>
-  </head>
-  <body>
-    <div id="unicorn-display"></div>
-    <script src="web/game.min.js"></script>
-    <script>
-      const params = new URLSearchParams( location.search );
-      setupGame( "Autumn Adventure", {
-        path: "https://cdn.jsdelivr.net/gh/pixelplush",
-        map: "game-maze/autumnadventure/floor",
-        walls: "game-maze/autumnadventure/walls",
-        fog: [],// "effects/fog", "effects/fog3" ],
-        banner: "game-maze/autumnadventure/banner",
-        instructions: "game-maze/autumnadventure/instructions",
-        numbers: "game-maze/autumnadventure/numbers",
-        endBG: "game-maze/autumnadventure/end_bcg",
-        endNote: "game-maze/autumnadventure/thank you",
-        scoreBoard: [ "game-maze/autumnadventure/scoreboard" ],
-        scoreBoardVerticalOffset: 0,
-        bannerHorizontalOffset: 60,
-        characters: {
-          "amanita": "amanita",
-          "twiglet": "twiglet",
-          "ghost": "ghost",
-          "maaya": "maaya",
-          "instafluff": "instafluff",
-        },
-        playable: [ "amanita", "twiglet" ],
-        animatedPrizes: {
-        },
-        prizes: {
-          "leaf_small1": 5,
-          "leaf_small2": 5,
-          "leaf_small3": 5,
-          "green_leaf": 15,
-          "oak_leaf": 30,
-          "pine_cone": 50,
-          "acorn_gold": 100,
-        },
-        prizeRarity: {
-          "leaf_small1": 30,
-          "leaf_small2": 30,
-          "leaf_small3": 30,
-          "green_leaf": 20,
-          "oak_leaf": 10,
-          "pine_cone": 5,
-          "acorn_gold": 1,
-        },
-        traps: {
-          "web": -5,
-        },
-        trapRarity: {
-          "web": 30,
-        },
-        bossName: "BOO!",
-        bossCharacter: "ghost",
-        defaultNameColor: "#0A010A",
-        scoreColor: "#FD951E",
-        scoreboardColor: "#0A010A",
-        // snow: true,
-        giftDrop: null,
-        lanterns: "game-maze/autumnadventure/lanterns",
-        glows: [
-          { x: 6, y: 5 },
-          { x: 634, y: 5 },
-          { x: 510, y: 33 },
-          { x: 320, y: 66 },
-          { x: 97, y: 98 },
-          { x: 543, y: 194 },
-          { x: 98, y: 227 },
-          { x: 415, y: 255 },
-          { x: 256, y: 325 },
-          { x: 5, y: 350 },
-          { x: 634, y: 350 },
-        ]
-      },
-      {
-        channel: params.get( "channel" ),
-        oauth: params.get( "oauth" ),
-        refreshToken: params.get( "refreshToken" ),
-        messageFormat: params.get( "messageFormat" ),
-        addBoss: !params.get( "noBoss" ),
-        bossEffect: params.get( "bossEffect" ) || "steal",
-        trapEffect: params.get( "trapEffect" ) || "points",
-        numBosses: params.get( "bosses" ) ? parseInt( params.get( "bosses" ) ) : 0,
-        numPrizes: params.get( "prizes" ) ? parseInt( params.get( "prizes" ) ) : 7,
-        numTraps: params.get( "traps" ) ? parseInt( params.get( "traps" ) ) : 5,
-        showBannerAd: false,
-      });
-    </script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0;url=https://cdn.pixelplush.dev/maze/autumn.html">
+<title>Redirecting...</title>
+</head>
+<body>
+<p>This game has moved. <a href="https://cdn.pixelplush.dev/maze/autumn.html">Click here</a> if not redirected.</p>
+<script>window.location.replace("https://cdn.pixelplush.dev/maze/autumn.html");</script>
+</body>
 </html>
