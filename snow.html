@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Winter Warfare!</title>
+  </head>
+  <body class="container">
+    <h1>Join the Snow Fight!</h1>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Name</span>
+      </div>
+      <input id="username" type="text" class="form-control" placeholder="Display Name" aria-label="Username" aria-describedby="basic-addon1">
+      <select class="form-control" id="character">
+        <option value="elf">Elf (Boy)</option>
+        <option value="elfgirl">Elf (Girl)</option>
+        <option value="santa">Santa</option>
+        <option value="claus">Claus</option>
+        <option value="grinch">Grinch</option>
+        <option value="maaya">Maaya</option>
+        <option value="instafluff">Instafluff</option>
+      </select>
+    </div>
+
+    <button id="join-btn" type="submit" class="btn btn-primary">Let Me In!</button>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      $( "#join-btn" ).click( () => {
+        let name = $( "#username" ).val();
+        let character = $( "#character" ).val();
+        // console.log( name, character );
+        location.href = `fight.html?name=${name}&character=${character}`;
+      });
+
+      $(document).on("keypress", ".input-group:has(input:input, span.input-group-btn:has(div.btn)) input:input", function(e){
+          if (e.which == 13){
+              $( "#join-btn" ).click();
+          }
+      });
+    </script>
+  </body>
+</html>

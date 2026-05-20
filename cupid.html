@@ -1,11 +1,109 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Redirecting...</title>
-</head>
-<body>
-<p>This game has moved. <a href="https://cdn.pixelplush.dev/maze/cupid.html">Click here</a> if not redirected.</p>
-<script>window.location.replace("https://cdn.pixelplush.dev/maze/cupid.html" + window.location.search + window.location.hash);</script>
-</body>
+  <head>
+    <title>Cupid Heart Collection</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135113520-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-135113520-1');
+    </script>
+    <link rel="stylesheet" href="https://cdn.pixelplush.dev/maze/web/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.pixelplush.dev/assets/pinkfluffyunicorn.min.js"></script>
+  </head>
+  <body>
+    <div id="unicorn-display"></div>
+    <script src="https://cdn.pixelplush.dev/maze/web/maze.js"></script>
+    <script src="https://cdn.pixelplush.dev/maze/web/game.js"></script>
+    <script>
+      const params = new URLSearchParams( location.search );
+      setupGame( "Cupid Heart Collection", {
+        path: "https://www.pixelplush.dev",//"web",
+        map: "game-maze/valentines/floor",
+        walls: "game-maze/valentines/walls",
+        fog: [],// "fog", "fog3" ],
+        banner: "game-maze/valentines/banner",
+        instructions: "game-maze/valentines/instructions",
+        numbers: "game-maze/valentines/numbers",
+        endBG: "game-maze/valentines/end_bcg",
+        endNote: "game-maze/valentines/end_note",
+        scoreBoard: [ "game-maze/valentines/scoreboard" ],
+        scoreBoardVerticalOffset: 50,
+        bannerHorizontalOffset: -10,
+        endVerticalOffset: 20,
+        characters: {
+          "boybear": "boybear",
+          "girlbear": "girlbear",
+          "evilbear": "evilbear",
+          "maaya": "maaya",
+          "instafluff": "instafluff",
+        },
+        playable: [ "boybear", "girlbear" ],
+        animatedPrizes: {
+        },
+        prizes: {
+          "smallheart_red": 1,
+          "smallheart_orange": 1,
+          "bigger_heart": 5,
+          "choco_heart": 15,
+          "giant_heart": 50,
+        },
+        prizeRarity: {
+          "smallheart_red": 100,
+          "smallheart_orange": 100,
+          "bigger_heart": 20,
+          "choco_heart": 10,
+          "giant_heart": 1
+        },
+        traps: {
+        },
+        trapRarity: {
+        },
+        bossName: "DARK!",
+        bossCharacter: "evilbear",
+        defaultNameColor: "#f8bfe0",
+        scoreColor: "#770027",
+        scoreboardColor: "#770027",
+        // snow: true,
+        giftDrop: null,
+        prizeRespawnTime: 60,
+        lanterns: "game-maze/valentines/lanterns",
+        glows: [
+          { x: 6, y: 5 },
+          { x: 634, y: 5 },
+          { x: 510, y: 30 },
+          { x: 320, y: 62 },
+          { x: 97, y: 94 },
+          { x: 543, y: 190 },
+          { x: 97, y: 223 },
+          { x: 415, y: 254 },
+          { x: 576, y: 63 },
+          { x: 256, y: 319 },
+          { x: 5, y: 344 },
+          { x: 634, y: 344 },
+          { x: 224, y: 34 },
+          { x: 256, y: 128 },
+          { x: 479, y: 128 },
+          { x: 193, y: 258 },
+          { x: 575, y: 287 },
+          { x: 608, y: 224 },
+        ]
+      },
+      {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        refreshToken: params.get( "refreshToken" ),
+        messageFormat: params.get( "messageFormat" ),
+        addBoss: !params.get( "noBoss" ),
+        bossEffect: params.get( "bossEffect" ) || "base",
+        numBosses: params.get( "bosses" ) ? parseInt( params.get( "bosses" ) ) : 4,
+        numPrizes: params.get( "prizes" ) ? parseInt( params.get( "prizes" ) ) : 220 - 6,
+        numTraps: params.get( "traps" ) ? parseInt( params.get( "traps" ) ) : 0,
+        showBannerAd: false,
+      });
+    </script>
+  </body>
 </html>

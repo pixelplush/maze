@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+    <title>Wandering Wizards Link Generator</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Wandering Wizards Link Generator</h1>
+      <form>
+        <div class="form-group">
+          <label for="inputGameTheme">Choose Theme</label>
+          <select class="form-control" id="inputGameTheme">
+            <option>Wandering Wizards</option>
+            <option>Trick or Treat (Halloween)</option>
+            <option>Santa's Secret Service (Christmas)</option>
+            <option>Frozen Frenzy (Winter)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="inputChannelName">Twitch Channel Name</label>
+          <input type="text" class="form-control" id="inputChannelName" placeholder="Your Twitch Channel Name" required>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="inputEnableBoss" checked>
+          <label class="form-check-label" for="inputEnableBoss">
+            Enable Boss
+          </label>
+        </div>
+        <div class="form-row">
+            <div class="col">
+              <label for="inputPrizeCount">Prize Count</label>
+              <input type="number" class="form-control" id="inputPrizeCount" value="7" min="1" max="100" placeholder="Number of Prizes Spawned">
+            </div>
+            <div class="col">
+              <label for="inputTrapCount">Trap Count</label>
+              <input type="number" class="form-control" id="inputTrapCount" value="5" min="1" max="100" placeholder="Number of Traps Spawned">
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="inputChatOAuth">Twitch Chat OAuth</label>
+          <input type="text" class="form-control" id="inputChatOAuth" placeholder="Your Twitch Chat OAuth Token">
+          <small id="oauthHelp" class="form-text text-muted">Keep this safe! This token allows sending chat messages as you.<br/>Get a Twitch Chat OAuth Token at <a href="http://twitchapps.com/tmi/" target="_blank">http://twitchapps.com/tmi/</a></small>
+          <label for="inputMessageFormat">End-Game Message Format</label>
+          <input type="text" class="form-control" id="inputMessageFormat" value="USERNAME finished with POINTS!" placeholder="e.g. USERNAME finished with POINTS!">
+        </div>
+        <div class="form-group">
+          <label for="outputOverlayLink">Overlay Link</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="outputOverlayLink">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary clipboard" type="button" id="copy-btn" data-clipboard-target="#outputOverlayLink">Click to Copy</button>
+            </div>
+          </div>
+          <small id="oauthHelp" class="form-text text-muted">Copy and add this link as a Browser Source!</small>
+        </div>
+      </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+      let gameTheme = "index.html";
+      let channelName = "";
+      let isBossEnabled = true;
+      let chatOAuth = "";
+      let messageFormat = "USERNAME finished with POINTS!";
+      let prizeCount = "7";
+      let trapCount = "5";
+      const gameThemes = [ "index.html", "ghost.html", "christmas.html", "frozen.html" ];
+      $( "#inputGameTheme" ).on( "change", ( e ) => {
+        // console.log( e, "changed" );
+        gameTheme = gameThemes[ e.target.selectedIndex ];
+        generateLink();
+      });
+      $( "#inputEnableBoss" ).on( "change", ( e ) => {
+        // console.log( e, "changed" );
+        isBossEnabled = e.target.checked;
+        generateLink();
+      });
+      $( "#inputChannelName" ).on( "input", ( e ) => {
+        // console.log( e, "input" );
+        channelName = e.target.value;
+        generateLink();
+      });
+      $( "#inputChatOAuth" ).on( "input", ( e ) => {
+        // console.log( e, "input" );
+        chatOAuth = e.target.value;
+        generateLink();
+      });
+      $( "#inputMessageFormat" ).on( "input", ( e ) => {
+        messageFormat = e.target.value;
+        generateLink();
+      });
+      $( "#inputPrizeCount" ).on( "input", ( e ) => {
+        prizeCount = e.target.value;
+        generateLink();
+      });
+      $( "#inputTrapCount" ).on( "input", ( e ) => {
+        trapCount = e.target.value;
+        generateLink();
+      });
+      generateLink();
+
+      $( document ).ready(function() {
+        var clipboard = new ClipboardJS('.clipboard');
+      });
+
+      function generateLink() {
+        let baseLink = `https://www.instafluff.tv/WanderingWizards/web/${gameTheme}?`;
+        let params = [];
+        params.push( `channel=${channelName}` );
+        if( !isBossEnabled ) {
+          params.push( "noBoss=true" );
+        }
+        if( chatOAuth ) {
+          params.push( `oauth=${chatOAuth}` );
+          params.push( `messageFormat=${messageFormat}` );
+        }
+        params.push( `prizes=${prizeCount}` );
+        params.push( `traps=${trapCount}` );
+        // if( )
+        $( "#outputOverlayLink" ).val( baseLink + params.join( "&" ) );
+      }
+    </script>
+  </body>
+</html>

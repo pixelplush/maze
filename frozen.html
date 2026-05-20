@@ -1,11 +1,115 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Redirecting...</title>
-</head>
-<body>
-<p>This game has moved. <a href="https://cdn.pixelplush.dev/maze/frozen.html">Click here</a> if not redirected.</p>
-<script>window.location.replace("https://cdn.pixelplush.dev/maze/frozen.html" + window.location.search + window.location.hash);</script>
-</body>
+  <head>
+    <title>Frozen Frenzy</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135113520-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-135113520-1');
+    </script>
+    <link rel="stylesheet" href="https://cdn.pixelplush.dev/maze/web/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.pixelplush.dev/assets/pinkfluffyunicorn.min.js"></script>
+  </head>
+  <body>
+    <div id="unicorn-display"></div>
+    <script src="https://cdn.pixelplush.dev/maze/web/maze.js"></script>
+    <script src="https://cdn.pixelplush.dev/maze/web/game.js"></script>
+    <script>
+      const params = new URLSearchParams( location.search );
+      setupGame( "Frozen Frenzy", {
+        path: "https://cdn.pixelplush.dev/maze/web",
+        map: "game-maze/frozenfrenzy/floor",
+        walls: "game-maze/frozenfrenzy/walls",
+        fog: [ "effects/fog", "effects/fog3" ],
+        banner: "game-maze/frozenfrenzy/banner",
+        instructions: "game-maze/frozenfrenzy/instructions",
+        numbers: "game-maze/numbers",
+        endBG: "game-maze/frozenfrenzy/end_bcg",
+        endNote: "game-maze/frozenfrenzy/end",
+        scoreBoard: [ "game-maze/frozenfrenzy/scoreboard" ],
+        scoreBoardVerticalOffset: 0,
+        bannerHorizontalOffset: 60,
+        characters: {
+          "elf": "elf",
+          "elfgirl": "elfgirl",
+          "snowman": "snowman",
+          // "santa": "santa",
+          // "claus": "claus",
+          "ghost": "ghost",
+          "maaya": "maaya",
+          "instafluff": "instafluff",
+        },
+        playable: [ "snowman" ],
+        animatedPrizes: {
+            "heart": {
+                "shine": 14
+            }
+        },
+        prizes: {
+          "green_mitten": 5,
+          "pink_mitten": 10,
+          "carrot": 20,
+          "hat": 25,
+          "coco": 30,
+          "heart": 100,
+        },
+        prizeRarity: {
+          "green_mitten": 50,
+          "pink_mitten": 50,
+          "carrot": 25,
+          "hat": 20,
+          "coco": 10,
+          "heart": 1
+        },
+        traps: {
+          "hole": -5,
+          "hole2": -5,
+          "hole3": -5
+        },
+        trapRarity: {
+          "hole": 30,
+          "hole2": 30,
+          "hole3": 30,
+        },
+        bossName: "GHOST!",
+        bossCharacter: "ghost",
+        defaultNameColor: "#ffffff",
+        scoreColor: "#2E84D9",
+        scoreboardColor: "#2E84D9",
+        snow: true,
+        giftDrop: null,
+        lanterns: "game-maze/frozenfrenzy/lanterns",
+        glows: [
+          { x: 6, y: 5 },
+          { x: 634, y: 5 },
+          { x: 510, y: 30 },
+          { x: 320, y: 62 },
+          { x: 97, y: 94 },
+          { x: 543, y: 190 },
+          { x: 97, y: 223 },
+          { x: 415, y: 254 },
+          { x: 576, y: 63 },
+          { x: 256, y: 319 },
+          { x: 5, y: 344 },
+          { x: 634, y: 344 },
+        ]
+      },
+      {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        refreshToken: params.get( "refreshToken" ),
+        messageFormat: params.get( "messageFormat" ),
+        addBoss: !params.get( "noBoss" ),
+        bossEffect: params.get( "bossEffect" ) || "steal",
+        numBosses: params.get( "bosses" ) ? parseInt( params.get( "bosses" ) ) : 1,
+        numPrizes: params.get( "prizes" ) ? parseInt( params.get( "prizes" ) ) : 7,
+        numTraps: params.get( "traps" ) ? parseInt( params.get( "traps" ) ) : 5,
+        showBannerAd: false,
+      });
+    </script>
+  </body>
 </html>
