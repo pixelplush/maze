@@ -16,12 +16,11 @@
   </head>
   <body>
     <div id="unicorn-display"></div>
-    <script src="https://cdn.pixelplush.dev/maze/web/maze.js"></script>
-    <script src="https://cdn.pixelplush.dev/maze/web/game.js"></script>
+    <script src="https://cdn.pixelplush.dev/maze/web/game.min.js"></script>
     <script>
       const params = new URLSearchParams( location.search );
       setupGame( "Springtime Spree", {
-        path: "https://www.pixelplush.dev",
+        path: "https://cdn.pixelplush.dev",
         map: "game-maze/spring/floor",
         walls: "game-maze/spring/walls",
         fog: [],// "effects/fog", "effects/fog3" ],
