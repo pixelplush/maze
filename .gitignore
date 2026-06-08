@@ -104,3 +104,6 @@ dist
 .tern-port
 
 data/
+
+# Source maps — never commit these. They expose original source code if deployed.
+*.map
